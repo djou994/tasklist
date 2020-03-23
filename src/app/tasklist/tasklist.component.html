@@ -1,0 +1,75 @@
+<header>
+  <h1 align="center">TaskList</h1>
+</header>
+
+<body>
+  <div>
+    <table *ngIf="dataSource" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Titulo. </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> descrição </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status</th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="creationDate">
+        <th mat-header-cell *matHeaderCellDef> Data de criaçao </th>
+        <td mat-cell *matCellDef="let element"> {{element.creationDate}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="updateDate">
+        <th mat-header-cell *matHeaderCellDef> Data de alteraçao </th>
+        <td mat-cell *matCellDef="let element"> {{element.updateDate}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="conclusionDate">
+        <th mat-header-cell *matHeaderCellDef> Data de conclusão </th>
+        <td mat-cell *matCellDef="let element"> {{element.conclusionDate}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="statusbutton">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row" >
+          <button *ngIf="row.status != 'Pendente'"
+                  class="status-button" mat-button (click)="open(row)">Iniciar
+          </button>
+          <button *ngIf="row.status != 'Terminado'"
+                  class="status-button" mat-button (click)="close(row)">Concluir
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="button">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row">
+          <button id="bt-list-edit" mat-button (click)="edit(row)">Editar</button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row">
+          <button id="bt-list-del" mat-button (click)="delete(row)">Excluir</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <div>
+      <button id="bt-new-task" mat-raised-button (click)="onClick()">Novo</button>
+    </div>
+
+  </div>
+</body>
+

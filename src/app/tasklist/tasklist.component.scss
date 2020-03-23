@@ -1,0 +1,29 @@
+table {
+  height: 80%;
+  width: 95%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+}
+
+button#bt-new-task {
+  height: 5%;
+  color: white;
+  background-color: darkslateblue;
+  margin-left: 2.5%;
+  margin-top: 15px;
+}
+
+button#bt-list-edit {
+  color: white;
+  background-color: darkslateblue;
+}
+
+button.status-button {
+  color: white;
+  background-color: darkgreen;
+}
+
+button#bt-list-del {
+  color: white;
+  background-color: darkred;
+}

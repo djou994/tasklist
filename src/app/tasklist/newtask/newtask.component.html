@@ -1,0 +1,14 @@
+<div class="form-group" [formGroup]="task">
+  <mat-form-field class="form-control" appearance="fill" >
+    <mat-label>Input</mat-label>
+    <input matInput [formControl]="task.get('title')">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="form-control" appearance="fill">
+    <mat-label>Textarea</mat-label>
+    <textarea matInput [formControl]="task.get('description')"></textarea>
+  </mat-form-field>
+  <br>
+  <button mat-button (click)="onClick()">Salvar</button>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+</div>
